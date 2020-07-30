@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "HUNNXX, NAHUN KIM"
   avatar           : "resources/images/profile.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
+  bio              : "Computer Vision, Deep Learning"
   location         : "Republic of Korea, Daegu"
   email            :
   links:
