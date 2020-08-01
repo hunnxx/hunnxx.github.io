@@ -16,7 +16,7 @@ date: 2020-08-01 22:15:00 -0400
 - NaHun Kim, Sangwon Kim, Byoung Chul Ko / Developing of Modeling System and Depth Map Estimation using L-ENet / 제29회 신호처리합동학술대회, Sep. 2019
 - 박민지, 김나훈, 손동현 Gustavo Adrian, 고병철 / 시공간 분석을 이용한 야간 화재 검증 시스템 / 2019한국컴퓨터종합학술대회(KCC2019), pp.987~989 June.2019.
 - Sangwon Kim, NaHun Kim, MinJi Park, Deokwoo Lee, Byoung Chul Ko / Single Image Based Real-time Depth-map Estimation Using Light-weight Deep Convolutional Neural Network / IPIU2019, Feb. 2019
-- Sangwon Kim, NaHun Kim, Deokwoo Lee, Byoung Chul Ko / Development of Depth Map Prediction and Modeling System Using Single Image and Deep Neural Network / Oct. 2018 (`**Best Poster Award**`)
+- Sangwon Kim, NaHun Kim, Deokwoo Lee, Byoung Chul Ko / Development of Depth Map Prediction and Modeling System Using Single Image and Deep Neural Network / Oct. 2018 (**`Best Poster Award`**)
 
 ## Project
 - 소프트 타겟 학습에 기반한 비디오 감시카메라에서 빠른 보행자 검출 2019/11/01 - 2020/04/30 
