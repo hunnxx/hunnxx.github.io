@@ -14,6 +14,7 @@ Student Researcher
 CVPR Lab.   
 Keimyung Univ.   
 Daegu, Republic of Korea
+<br>
 
 
 ## Patents
@@ -23,6 +24,8 @@ Daegu, Republic of Korea
 ### 2019
 - 가변 시점에서 촬영된 카메라 왜곡 보정 방법 및 이를 이용한 블록 3차원 모델링 방법
 - 폴리오미노를 이용한 조립식 교구에 대해서 단일 카메라 기반으로 3차원 깊이맵 생성과 영상 분할 기술을 이용하여 3차원 모델링 하는 방법
+<br>
+
 
 ## Publications
 ### 2019
@@ -33,6 +36,8 @@ Daegu, Republic of Korea
 
 ### 2018
 - Sangwon Kim, NaHun Kim, Deokwoo Lee, Byoung Chul Ko / Development of Depth Map Prediction and Modeling System Using Single Image and Deep Neural Network / Oct. 2018 (**`Best Poster Award`**)
+<br>
+
 
 ## Project
 - 소프트 타겟 학습에 기반한 비디오 감시카메라에서 빠른 보행자 검출 Nov. 2019 - Apr. 2020
