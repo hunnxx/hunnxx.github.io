@@ -173,7 +173,7 @@ Text1<br>Text2
 
 - 이모티콘(www.emoji-cheat-sheet.com)
 
-:smile: :cloud: :apple: :house: :car:
+![Emoji](/resources/images/emoji.png)
 ```
 :smile: :cloud: :apple: :house: :car:
 ```
@@ -241,11 +241,7 @@ list = ['Apple', 'Banana', 'Strawberry']
 
 - 클론(:)으 위치를 통해 셀 정렬
 
-|변수|의미|기본값|
-|:---|:---:|---:|
-|'Variable A'|meaning of a|A|
-|'Variable B'|meaning of b|B|
-|'Variable C'|meaning of c|C|
+![Table](/resources/images/table.png "Table")
 ```
 |변수|의미|기본값|
 |:---|:---:|---:|
