@@ -5,9 +5,9 @@ date: 2020-08-01 22:15:00 -0400
 
 ## Experiences
 ### Jul. 2020 - 
-Software Programmer
-Gogotech
-Daegu, Republic of Korea
+Software Programmer   
+Gogotech   
+Daegu, Republic of Korea   
 
 ### Jun. 2018 - Feb. 2020
 Student Researcher   
