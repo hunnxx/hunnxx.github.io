@@ -13,7 +13,7 @@ Daegu, Republic of Korea
 Student Researcher   
 CVPR Lab.   
 Keimyung Univ.   
-Daegu, Republic of Korea
+Daegu, Republic of Korea   
 <br>
 
 
