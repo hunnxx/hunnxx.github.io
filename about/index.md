@@ -4,6 +4,11 @@ date: 2020-08-01 22:15:00 -0400
 ---
 
 ## Experiences
+### Jun. 2018 - Feb. 2020
+Student Researcher
+CVPR Lab.
+Keimyung Univ.
+Daegu, Republic of Korea
 
 
 ## Patents
@@ -25,9 +30,9 @@ date: 2020-08-01 22:15:00 -0400
 - Sangwon Kim, NaHun Kim, Deokwoo Lee, Byoung Chul Ko / Development of Depth Map Prediction and Modeling System Using Single Image and Deep Neural Network / Oct. 2018 (**`Best Poster Award`**)
 
 ## Project
-- 소프트 타겟 학습에 기반한 비디오 감시카메라에서 빠른 보행자 검출 2019/11/01 - 2020/04/30 
-- 화재 감지를 위한 데이터 베이스 구축 및 심층 신경망 기반 화재 감지 분석 2019/05/01 - 2019/11/30
-- 3D 자동 렌더링 기술 개발을 위한 학습 네트워크 개발 및 경량화 개발 2018/12/01 - 2019/11/30
-- 시공간 심층 신경망을 이용한 얼굴 표정인식 연구 2018/12/01 - 2019/11/30
-- 단일 영상과 멀티 스케일 심층 네트워크를 이용한 3차원 데이터 획득 기술 2018/06/31 - 2019/01/31
-- Pole형 유틸리티 표지기를 활용한 매설관리로 관리시스템 개발 2017/07/01 - 2018/01/31
+- 소프트 타겟 학습에 기반한 비디오 감시카메라에서 빠른 보행자 검출 Nov. 2019 - Apr. 2020
+- 화재 감지를 위한 데이터 베이스 구축 및 심층 신경망 기반 화재 감지 분석 May. 2019 - Nov. 2019
+- 3D 자동 렌더링 기술 개발을 위한 학습 네트워크 개발 및 경량화 개발 Dec. 2018 - Nov. 2019
+- 시공간 심층 신경망을 이용한 얼굴 표정인식 연구 Dec. 2018 - Nov. 2019
+- 단일 영상과 멀티 스케일 심층 네트워크를 이용한 3차원 데이터 획득 기술 Jun. 2018 - Jan. 2019
+- Pole형 유틸리티 표지기를 활용한 매설관리로 관리시스템 개발 Jul. 2017 - Jan. 2018
