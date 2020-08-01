@@ -304,5 +304,3 @@ Link: <https://google.com>
 ```
 [![IMG](/path/to/img.jpg)](https://example.com)
 ```
-
-Link: [Google](https://google.com)
