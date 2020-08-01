@@ -279,6 +279,7 @@ defaults:
       comments: # true
       share: true
       related: true
+  # _about
   - scope:
       path: ""
       type: pages
@@ -289,5 +290,11 @@ defaults:
       comments: false
       share: false
       related: false
+    # _foo
+  - scope:
+      path: ""
+      type: foo
+    values:
+      layout: single
       
 theme: jekyll-theme-minimal
