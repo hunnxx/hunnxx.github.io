@@ -1,7 +1,7 @@
 ---
 title: "마크다운(MarkDown, *.md) 작성법"
 date: 2020-08-01 22:15:00 -0400
-categories:
+categories: markdown
 ---
 
 # 목차
