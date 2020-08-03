@@ -332,4 +332,7 @@ Class_name_3
 ```
 
 ## Train
+```shell
+$ ./darknet detector train <obj.data> <cfg> <pre-trained weights> -map
+```
 ![Log](/resources/images/log.jpg "Log")
