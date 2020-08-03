@@ -64,8 +64,7 @@ $ nvcc --version
 ```
 
 ### cuDnn
-- Install [cuDNN](https://developer.nvidia.com/rdp/cudnn-archive) >= 7.0 for CUDA10.0
-- [Guide for Tar/Debian/RPM](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html#installlinux-tar)
+- Install [cuDNN](https://developer.nvidia.com/rdp/cudnn-archive) >= 7.0 for CUDA10.0 ([Guide for Tar/Debian/RPM](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html#installlinux-tar))
 - Check
 ```shell
 $ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
