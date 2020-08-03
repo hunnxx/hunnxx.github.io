@@ -18,6 +18,8 @@ categories: deep-learning object-detection darknet
 &nbsp;&nbsp;&nbsp;&nbsp;[1.5 Python](#python)   
 &nbsp;&nbsp;&nbsp;&nbsp;[1.6 OpenCV](#opencv)   
 &nbsp;&nbsp;&nbsp;&nbsp;[1.7 Darknet](#darknet)
+[2. Test](#test)
+[3. Training on Custom Dataset](#training-on-custom-dataset)
 <br>
 
 # Darknet Framework
@@ -217,3 +219,26 @@ ZED_CAMERA_v2_8=0
 ```shell
 $ make -j4
 ```
+
+# Test
+
+## OpenCV
+```shell
+$ ./darknet imtest data/eagle.jpg
+```
+
+## Darknet
+### Image
+```shell
+$ ./darknet detector test cfg/coco.data cfg/yolov3.cfg yolov3.weights data/dog.jpg
+```
+### Video
+```shell
+$ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights <video-file>
+```
+### USB Webcam
+```shell
+$ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights -c <num>
+```
+
+# Training on Custom Dataset
