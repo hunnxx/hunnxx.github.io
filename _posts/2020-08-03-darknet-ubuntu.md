@@ -345,7 +345,7 @@ $ ./darknet detector train <obj.data> <cfg> <pre-trained weights> -map
 - https://pjreddie.com/darknet/
 - https://github.com/AlexeyAB/darknet
 - https://github.com/AlexeyAB/Yolo_mark
-- https://medium.com/@alexeyab84/yolov4-the-most-accurate-real-time-neural-network-on-ms-coco-dataset-73adfd3602fe?- source=friends_link&sk=6039748846bbcf1d960c3061542591d7
+- https://medium.com/@alexeyab84/yolov4-the-most-accurate-real-time-neural-network-on-ms-coco-dataset-73adfd3602fe?-source=friends_link&sk=6039748846bbcf1d960c3061542591d7
 - https://www.youtube.com/watch?v=5pYh1rFnNZs
 - https://www.youtube.com/watch?v=sUxAVpzZ8hU
 ### OS
