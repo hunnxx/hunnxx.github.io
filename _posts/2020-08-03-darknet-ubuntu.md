@@ -335,3 +335,4 @@ Class_name_3
 $ ./darknet detector train <obj.data> <cfg> <pre-trained weights> -map
 ```
 ![Log](/resources/images/log.jpg "Log")
+![mAP](/resources/images/map.jpg "mAP")
