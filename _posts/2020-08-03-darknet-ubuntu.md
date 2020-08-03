@@ -219,6 +219,8 @@ ZED_CAMERA_v2_8=0
 ```shell
 $ make -j4
 ```
+<br>
+
 
 # Test
 ## OpenCV
@@ -249,13 +251,14 @@ $ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights -c <num>
 
 <br>
 
+
 # Training on Custom Dataset
 ## Annotation([Yolo-Mark](https://github.com/AlexeyAB/Yolo_mark))
 ![Annotation](/resources/images/annotation.jpg "Annotation")
 ```
 <object-class> <x_center> <y_center> <width> <height>
 ```
-### train.txt
+### Make `train.txt`
 ```
 data/obj/train/img1.jpg
 data/obj/train/img2.jpg
@@ -263,7 +266,7 @@ data/obj/train/img3.jpg
 data/obj/train/img4.jpg
 . . .
 ```
-### test.txt
+### Make `test.txt`
 ```
 data/obj/test/img1.jpg
 data/obj/test/img2.jpg
@@ -272,6 +275,7 @@ data/obj/test/img4.jpg
 . . .
 ```
 ## Cfg
+### Modify `*.cfg`
 ```shell
 $ cp yolov3.cfg yolov3-custom.cfg
 $ vi yolov3-custom.cfg
@@ -315,7 +319,7 @@ classes = object의 수
 |enet-coco.cfg|[enetb0-coco.conv.132](https://drive.google.com/file/d/1uhh3D6RSn0ekgmsaTcl-ZW53WBaUDo6j/view?usp=sharing)|
 
 ## Data/Names
-### obj.data
+### Make `obj.data`
 ```
 classes=3 # number of classs
 train=data/train.txt # path for train.txt file
@@ -323,7 +327,7 @@ valid=data/test.txt # path for test.txt file
 names=data/obj.names # path for obj.names file
 backup=backup/ # path for saving weights
 ```
-### obj.names
+### Make `obj.names`
 ```
 Class_name_1
 Class_name_2
@@ -336,6 +340,24 @@ Class_name_3
 $ ./darknet detector train <obj.data> <cfg> <pre-trained weights> -map
 ```
 ![Log](/resources/images/log.jpg "Log")
+### When Should I Stop Training
+- 일반적으로 각 클래스의 학습을 위해 2000 iterations 수행 (최소 6000 iterations까지 유지)
+-	학습 과정 중 다음과 같이 출력되는 에러 중, 0.XXXXXX avg가 더 이상 감소하지 않을 때, 학습 종료(마지막 평균 loss는 데이터에 따라 0.05에서 3.0으로 구성 가능함)
+```
+Region Avg IOU: 0.798363, Class: 0.893232, Obj: 0.700808, No Obj: 0.004567, Avg Recall: 1.000000, count: 8 
+Region Avg IOU: 0.800677, Class: 0.892181, Obj: 0.701590, No Obj: 0.004574, Avg Recall: 1.000000, count: 8
+
+9002: 0.211667, 0.60730 avg, 0.001000 rate, 3.868000 seconds, 576128 images Loaded: 0.000000 seconds
+```
+### Select a Weights File for Test
+-	학습이 종료되면 obj.data에 지정된 backup 경로에 가중치 파일들이 저장됨
+-	Overfitting을 피해 최적의 Weigths 파일을 선택
+    - Overfitting : 학습 데이터를 검출 가능하지만 새로운 데이터에 대해 검출 불가능
+    - Early Stopping Point : 특정 시점에 학습을 종료함으로써 Overfitting을 방지하는 지점
+-	학습 종료 iteratinos 시점부터 이전의 Weights 파일을 다음 명령어를 통해 가장 높은 mAP(또는 IoU)를 가지는 Weights 선택
+```
+$ ./darknet detector map <obj.data> <cfg> <weights>
+```
 ![mAP](/resources/images/map.jpg "mAP")
 <br>
 
