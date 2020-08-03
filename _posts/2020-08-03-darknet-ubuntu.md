@@ -1,11 +1,10 @@
 ---
-toc: true
 classes: wide
 title: "Darknet for Ubuntu"
 date: 2020-08-03 14:17:00 -0400
 categories: deep-learning object-detection darknet
 ---
-test
+
 # 목차
 [0. Darknet Framework](#darknet-framework)   
 [1. Install](#install)   
