@@ -48,6 +48,9 @@ $ nvidia-smi
 ### CUDA
 - Install [CUDA10.0](https://developer.nvidia.com/cuda-toolkit-archive)
 - Add [PATH](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions) in `/.bashrc`
+```shell
+$ vi /.bashrc
+```
 ```bash
 . . .
 export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
