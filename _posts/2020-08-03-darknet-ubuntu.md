@@ -221,12 +221,10 @@ $ make -j4
 ```
 
 # Test
-
 ## OpenCV
 ```shell
 $ ./darknet imtest data/eagle.jpg
 ```
-
 ## Darknet
 ### Image
 ```shell
@@ -240,5 +238,11 @@ $ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights <video-fil
 ```shell
 $ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights -c <num>
 ```
+## Pretraind Weights
+|**Model**|**Weights**|
+|:---:|:---:|
+|yolov4.cfg|yolov4.weights|
+|yolov4-tiny.cfg|yolov4-tiny.weights|
+<br>
 
 # Training on Custom Dataset
