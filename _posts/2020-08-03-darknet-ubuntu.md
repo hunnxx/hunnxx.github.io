@@ -7,17 +7,7 @@ categories: deep-learning object-detection darknet
 
 # 목차
 [0. Darknet Framework](#darknet-framework)   
-[1. Install](#install)   
-&nbsp;&nbsp;&nbsp;&nbsp;[1.1 Ubuntu](#ubuntu)   
-&nbsp;&nbsp;&nbsp;&nbsp;[1.2 NVIDIA](#nvidia)   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2.1 Driver](#driver)   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2.2 CUDA](#cuda)   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.2.3 cuDNN](#cudnn)   
-&nbsp;&nbsp;&nbsp;&nbsp;[1.3 CMake](#cmake)   
-&nbsp;&nbsp;&nbsp;&nbsp;[1.4 GCC](#gcc)   
-&nbsp;&nbsp;&nbsp;&nbsp;[1.5 Python](#python)   
-&nbsp;&nbsp;&nbsp;&nbsp;[1.6 OpenCV](#opencv)   
-&nbsp;&nbsp;&nbsp;&nbsp;[1.7 Darknet](#darknet)   
+[1. Install](#install)    
 [2. Test](#test)   
 [3. Training on Custom Dataset](#training-on-custom-dataset)   
 [4. References](#references)
