@@ -339,7 +339,7 @@ Class_name_3
 ```shell
 $ ./darknet detector train <obj.data> <cfg> <pre-trained weights> -map
 ```
-![Log](/resources/images/log.jpg "Log")
+![Log](/resources/images/log.jpg "Log"){: .align-center}
 ### When Should I Stop Training
 - 일반적으로 각 클래스의 학습을 위해 2000 iterations 수행 (최소 6000 iterations까지 유지)
 -	학습 과정 중 다음과 같이 출력되는 에러 중, 0.XXXXXX avg가 더 이상 감소하지 않을 때, 학습 종료(마지막 평균 loss는 데이터에 따라 0.05에서 3.0으로 구성 가능함)
