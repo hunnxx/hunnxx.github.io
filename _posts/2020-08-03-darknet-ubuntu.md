@@ -250,3 +250,18 @@ $ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights -c <num>
 <br>
 
 # Training on Custom Dataset
+## Annotation
+## Cfg
+## Weights
+
+|**Model**|**Weights**|
+|:---:|:---:|
+|yolov4[-custom].cfg|[yolov4.conv.137](https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137)|
+|yolov4-tiny[-31/-custom].cfg|[yolov4-tiny.conv.29](https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.conv.29)|
+|csresnext50-panet-spp.cfg|[csresnext50-panet-spp.conv.112](https://drive.google.com/file/d/16yMYCLQTY_oDlCIZPfn_sab6KD3zgzGq/view?usp=sharing)|
+|yolov3[-spp].cfg|[darknet53.conv.74](https://pjreddie.com/media/files/darknet53.conv.74)|
+|yolov3-tiny[-prn].cfg|[yolov3-tiny.conv.11](https://drive.google.com/file/d/18v36esoXCh-PsOKwyP2GWrpYDptDY8Zf/view?usp=sharing)|
+|enet-coco.cfg|[enetb0-coco.conv.132](https://drive.google.com/file/d/1uhh3D6RSn0ekgmsaTcl-ZW53WBaUDo6j/view?usp=sharing)|
+
+## Data/Names
+## 
