@@ -349,6 +349,8 @@ Region Avg IOU: 0.800677, Class: 0.892181, Obj: 0.701590, No Obj: 0.004574, Avg 
 $ ./darknet detector map <obj.data> <cfg> <weights>
 ```
 ![mAP](/resources/images/map.jpg "mAP")
+- IoU (intersect over union) - average instersect over union of objects and detections for a certain threshold = 0.24
+- mAP (mean average precision) - mean value of average precisions for each class, where average precision is average value of 11 points on PR-curve for each possible threshold (each probability of detection) for the same class (Precision-Recall in terms of PascalVOC, where Precision=TP/(TP+FP) and Recall=TP/(TP+FN) ), page-11: http://homepages.inf.ed.ac.uk/ckiw/postscript/ijcv_voc09.pdf
 <br>
 
 
