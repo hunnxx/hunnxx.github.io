@@ -317,11 +317,11 @@ classes = object의 수
 ## Data/Names
 ### obj.data
 ```
-classes=3 # 클래스 개수
-train=data/train.txt # 모든 학습 데이터의 경로가 저장된 텍스트 파일 경로
-valid=data/test.txt # 모든 테스트 데이터의 경로가 저장된 텍스트 파일 경로
-names=data/obj.names # obj.names 파일 경로
-backup=backup/ # 학습 데이터 저장 경로
+classes=3 # number of classs
+train=data/train.txt # path for train.txt file
+valid=data/test.txt # path for test.txt file
+names=data/obj.names # path for obj.names file
+backup=backup/ # path for saving weights
 ```
 ### obj.names
 ```
