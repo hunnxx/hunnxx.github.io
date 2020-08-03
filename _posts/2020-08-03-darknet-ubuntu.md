@@ -251,6 +251,7 @@ $ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights -c <num>
 
 # Training on Custom Dataset
 ## Annotation
+![Annotation](/resources/images/annotation.jpg "Annotation")
 ## Cfg
 ## Pretrained Weights
 
@@ -264,3 +265,4 @@ $ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights -c <num>
 |enet-coco.cfg|[enetb0-coco.conv.132](https://drive.google.com/file/d/1uhh3D6RSn0ekgmsaTcl-ZW53WBaUDo6j/view?usp=sharing)|
 
 ## Data/Names
+![Log](/resources/images/log.jpg "Log")
