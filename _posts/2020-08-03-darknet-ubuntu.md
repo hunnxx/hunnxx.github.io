@@ -20,8 +20,6 @@ categories: deep-learning object-detection darknet
 <br>
 
 # Darknet Framework
-
-### Coming Soon
 More Details : [Pjreddie](https://pjreddie.com), [AlexeyAB](https://github.com/AlexeyAB/darknet)
 <br>
 
