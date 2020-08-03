@@ -252,7 +252,55 @@ $ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights -c <num>
 # Training on Custom Dataset
 ## Annotation([Yolo-Mark](https://github.com/AlexeyAB/Yolo_mark))
 ![Annotation](/resources/images/annotation.jpg "Annotation")
+```
+<object-class> <x_center> <y_center> <width> <height>
+```
+```
+data/obj/train/img1.jpg
+data/obj/train/img2.jpg
+data/obj/train/img3.jpg
+data/obj/train/img4.jpg
+. . .
+```
+```
+data/obj/test/img1.jpg
+data/obj/test/img2.jpg
+data/obj/test/img3.jpg
+data/obj/test/img4.jpg
+. . .
+```
 ## Cfg
+```shell
+$ cp yolov3.cfg yolov3-custom.cfg
+$ vi yolov3-custom.cfg
+```
+```
+[net]
+Batch = 64 
+Subdivisions = 16
+max-batches = classes * 2000
+steps = max-batches * 0.8, max-batches * 0.9
+width, height = 32의 배수
+. . .
+[convolutional]
+filters = (classes + 5) * 3
+. . .
+[yolo]
+classes = object의 수
+. . .
+[convolutional]
+filters = (classes + 5) * 3
+. . .
+[yolo]
+classes = object의 수
+. . .
+[convolutional]
+filters = (classes + 5) * 3
+. . .
+[yolo]
+classes = object의 수
+. . .
+```
 ## Pretrained Weights
 
 |**Model**|**Weights**|
@@ -265,4 +313,19 @@ $ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights -c <num>
 |enet-coco.cfg|[enetb0-coco.conv.132](https://drive.google.com/file/d/1uhh3D6RSn0ekgmsaTcl-ZW53WBaUDo6j/view?usp=sharing)|
 
 ## Data/Names
+```
+classes=3 # 클래스 개수
+train=data/train.txt # 모든 학습 데이터의 경로가 저장된 텍스트 파일 경로
+valid=data/test.txt # 모든 테스트 데이터의 경로가 저장된 텍스트 파일 경로
+names=data/obj.names # obj.names 파일 경로
+backup=backup/ # 학습 데이터 저장 경로
+```
+```
+Class_name_1
+Class_name_2
+Class_name_3
+. . .
+```
+
+
 ![Log](/resources/images/log.jpg "Log")
