@@ -244,6 +244,15 @@ $ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights -c <num>
 |:---:|:---:|
 |yolov4.cfg|yolov4.weights|
 |yolov4-tiny.cfg|yolov4-tiny.weights|
+
+<table>
+  <th>Model</th>
+  <th>Weights</th>
+  <tr>
+    <td>yolov4.cfg</td>
+    <td>yolov4.weights</td>
+  </tr>
+</table>
 <br>
 
 # Training on Custom Dataset
