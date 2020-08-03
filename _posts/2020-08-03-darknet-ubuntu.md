@@ -255,6 +255,7 @@ $ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights -c <num>
 ```
 <object-class> <x_center> <y_center> <width> <height>
 ```
+### train.txt
 ```
 data/obj/train/img1.jpg
 data/obj/train/img2.jpg
@@ -262,6 +263,7 @@ data/obj/train/img3.jpg
 data/obj/train/img4.jpg
 . . .
 ```
+### test.txt
 ```
 data/obj/test/img1.jpg
 data/obj/test/img2.jpg
@@ -313,6 +315,7 @@ classes = object의 수
 |enet-coco.cfg|[enetb0-coco.conv.132](https://drive.google.com/file/d/1uhh3D6RSn0ekgmsaTcl-ZW53WBaUDo6j/view?usp=sharing)|
 
 ## Data/Names
+### obj.data
 ```
 classes=3 # 클래스 개수
 train=data/train.txt # 모든 학습 데이터의 경로가 저장된 텍스트 파일 경로
@@ -320,6 +323,7 @@ valid=data/test.txt # 모든 테스트 데이터의 경로가 저장된 텍스�
 names=data/obj.names # obj.names 파일 경로
 backup=backup/ # 학습 데이터 저장 경로
 ```
+### obj.names
 ```
 Class_name_1
 Class_name_2
