@@ -242,8 +242,10 @@ $ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights -c <num>
 
 |**Model**|**Weights**|
 |:---:|:---:|
-|yolov4.cfg|yolov4.weights|
-|yolov4-tiny.cfg|yolov4-tiny.weights|
+|yolov4.cfg|[yolov4.weights](https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.weights)|
+|yolov4-tiny.cfg|[yolov4-tiny.weights](https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v4_pre/yolov4-tiny.weights)|
+|yolov3.cfg|[yolov3.weights](https://pjreddie.com/media/files/yolov3.weights)|
+|yolov3-tiny.cfg|[yolov3-tiny.weights](https://pjreddie.com/media/files/yolov3-tiny.weights)|
 
 <br>
 
