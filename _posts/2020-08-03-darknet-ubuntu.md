@@ -353,8 +353,8 @@ Region Avg IOU: 0.800677, Class: 0.892181, Obj: 0.701590, No Obj: 0.004574, Avg 
 -	학습이 종료되면 obj.data에 지정된 backup 경로에 가중치 파일들이 저장됨
 -	Overfitting을 피해 최적의 Weigths 파일을 선택
     - Overfitting : 학습 데이터를 검출 가능하지만 새로운 데이터에 대해 검출 불가능
-    - Early Stopping Point : 특정 시점에 학습을 종료함으로써 Overfitting을 방지하는 지점
-![Stop](/resources/images/stop.png "Stop")
+    - Early Stopping Point : 특정 시점에 학습을 종료함으로써 Overfitting을 방지하는 지점   
+    ![Stop](/resources/images/stop.png "Stop")
 -	학습 종료 iteratinos 시점부터 이전의 Weights 파일을 다음 명령어를 통해 가장 높은 mAP(또는 IoU)를 가지는 Weights 선택
 ```
 $ ./darknet detector map <obj.data> <cfg> <weights>
