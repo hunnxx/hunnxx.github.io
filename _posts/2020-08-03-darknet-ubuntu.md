@@ -342,30 +342,30 @@ $ ./darknet detector train <obj.data> <cfg> <pre-trained weights> -map
 
 # References
 ### Darknet
-https://pjreddie.com/darknet/
-https://github.com/AlexeyAB/darknet
-https://github.com/AlexeyAB/Yolo_mark
-https://medium.com/@alexeyab84/yolov4-the-most-accurate-real-time-neural-network-on-ms-coco-dataset-73adfd3602fe?source=friends_link&sk=6039748846bbcf1d960c3061542591d7
-https://www.youtube.com/watch?v=5pYh1rFnNZs
-https://www.youtube.com/watch?v=sUxAVpzZ8hU
+- https://pjreddie.com/darknet/
+- https://github.com/AlexeyAB/darknet
+- https://github.com/AlexeyAB/Yolo_mark
+- https://medium.com/@alexeyab84/yolov4-the-most-accurate-real-time-neural-network-on-ms-coco-dataset-73adfd3602fe?- source=friends_link&sk=6039748846bbcf1d960c3061542591d7
+- https://www.youtube.com/watch?v=5pYh1rFnNZs
+- https://www.youtube.com/watch?v=sUxAVpzZ8hU
 ### OS
-https://ubuntu.com
-https://www.microsoft.com/ko-kr/software-download
+- https://ubuntu.com
+- https://www.microsoft.com/ko-kr/software-download
 ### NVIDIA
-https://www.nvidia.co.kr/Download/index.aspx?lang=kr
-https://developer.nvidia.com/cuda-toolkit
-https://developer.nvidia.com/cuda-toolkit-archive
-https://developer.nvidia.com/cudnn
-https://developer.nvidia.com/rdp/cudnn-archive
-https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html#installlinux-tar
-https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
+- https://www.nvidia.co.kr/Download/index.aspx?lang=kr
+- https://developer.nvidia.com/cuda-toolkit
+- https://developer.nvidia.com/cuda-toolkit-archive
+- https://developer.nvidia.com/cudnn
+- https://developer.nvidia.com/rdp/cudnn-archive
+- https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html#installlinux-tar
+- https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions
 ### OpenCV
-https://opencv.org/releases/
-https://github.com/opencv/opencv_contrib
-https://j-remind.tistory.com/57?category=693866
+- https://opencv.org/releases/
+- https://github.com/opencv/opencv_contrib
+- https://j-remind.tistory.com/57?category=693866
 ### CMake
-https://cmake.org/
+- https://cmake.org/
 ### Python
-https://www.python.org/downloads/windows/
+- https://www.python.org/downloads/windows/
 ### Visual Studio
-https://visualstudio.microsoft.com/ko/
+- https://visualstudio.microsoft.com/ko/
