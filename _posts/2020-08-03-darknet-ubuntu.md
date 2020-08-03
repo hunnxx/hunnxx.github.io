@@ -17,9 +17,9 @@ categories: deep-learning object-detection darknet
 &nbsp;&nbsp;&nbsp;&nbsp;[1.4 GCC](#gcc)   
 &nbsp;&nbsp;&nbsp;&nbsp;[1.5 Python](#python)   
 &nbsp;&nbsp;&nbsp;&nbsp;[1.6 OpenCV](#opencv)   
-&nbsp;&nbsp;&nbsp;&nbsp;[1.7 Darknet](#darknet)
-[2. Test](#test)
-[3. Training on Custom Dataset](#training-on-custom-dataset)
+&nbsp;&nbsp;&nbsp;&nbsp;[1.7 Darknet](#darknet)   
+[2. Test](#test)   
+[3. Training on Custom Dataset](#training-on-custom-dataset)   
 <br>
 
 # Darknet Framework
