@@ -1,6 +1,6 @@
 ---
-title: "Darknet"
-date: 2020-08-01 22:15:00 -0400
+title: "Darknet for Ubuntu"
+date: 2020-08-03 14:17:00 -0400
 categories: deep-learning object-detection darknet
 ---
 
