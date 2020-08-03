@@ -5,7 +5,7 @@ categories: deep-learning object-detection darknet
 ---
 
 # 목차
-[0. Darknet](#darknet)   
+[0. Darknet Framework](#darknet-framework)   
 [1. Install](#install)   
 &nbsp;&nbsp;&nbsp;&nbsp;[1.1 Ubuntu](#ubuntu)   
 &nbsp;&nbsp;&nbsp;&nbsp;[1.2 NVIDIA](#nvidia)   
@@ -16,9 +16,10 @@ categories: deep-learning object-detection darknet
 &nbsp;&nbsp;&nbsp;&nbsp;[1.4 GCC](#gcc)   
 &nbsp;&nbsp;&nbsp;&nbsp;[1.5 Python](#python)   
 &nbsp;&nbsp;&nbsp;&nbsp;[1.6 OpenCV](#opencv)   
+&nbsp;&nbsp;&nbsp;&nbsp;[1.7 Darknet](#darknet)
 <br>
 
-# Darknet
+# Darknet Framework
 
 ### Coming Soon
 More Details : [Pjreddie](https://pjreddie.com), [AlexeyAB](https://github.com/AlexeyAB/darknet)
@@ -183,4 +184,34 @@ $ sudo ldconfig
 - Check
 ```shell
 $ pkg-config --modversion opencv
+```
+
+## Darknet
+- Clone
+```shell
+$ git clone https://github.com/AlexeyAB/darknet
+```
+- Modify
+```shell
+$ vi Makefile
+```
+```
+GPU=1 
+CUDNN=1
+CUDNN_HALF=0 
+OPENCV=1 
+AVX=0
+OPENMP=0 
+LIBSO=0
+ZED_CAMERA=0
+ZED_CAMERA_v2_8=0
+# set GPU=1 and CUDNN=1 to speedup on GPU
+# set CUDNN_HALF=1 to further speedup 3x times (Mixed-precision on Tensor Cores) GPU: Volta, Xavier, Turing and higher
+# set AVX=1 and OPENMP=1 to speedup on CPU (if error occurs then set AVX=0)
+# set ZED_CAMERA=1 to enable ZED SDK 3.0 and above
+# set ZED_CAMERA_v2_8=1 to enable ZED SDK 2.x
+```
+- Make
+```shell
+$ make -j4
 ```
