@@ -36,9 +36,9 @@ def showImg(img):
     plt.imshow(img)
 
 fashion_mnist = keras.datasets.fashion_mnist
-(train_img_tf, train_labels_tf), (test_img_tf, test_labels_tf) = fashion_mnist.load_data()
+(train_imgs_tf, train_labels_tf), (test_imgs_tf, test_labels_tf) = fashion_mnist.load_data()
 
-showImg(train_img_tf[0])
+showImg(train_imgs_tf[0])
 print(train_labels_tf[0])
 ```
 ### Building the Model
@@ -63,23 +63,23 @@ modeltf.summary()
 ```
 ### Training
 ```python
-train_img_tensorflow = (train_img_tf / 255.0).reshape(train_img_tf.shape[0], 28, 28, 1)
-test_img_tensorflow = (test_img_tf / 255.0).reshape(test_img_tf.shape[0], 28, 28 ,1)
+train_imgs_tensorflow = (train_imgs_tf / 255.0).reshape(train_imgs_tf.shape[0], 28, 28, 1)
+test_imgs_tensorflow = (test_imgs_tf / 255.0).reshape(test_imgs_tf.shape[0], 28, 28 ,1)
 train_labels_tensorflow=keras.utils.to_categorical(train_labels_tf)
 test_labels_tensorflow=keras.utils.to_categorical(test_labels_tf)
 
-modeltf.fit(train_img_tensorflow, train_labels_tensorflow, epochs=30, batch_size=32)
+modeltf.fit(train_imgs_tensorflow, train_labels_tensorflow, epochs=30, batch_size=32)
 ```
 ### Result
 ```python
-predictions = modeltf.predict(test_img_tensorflow)
+predictions = modeltf.predict(test_imgs_tensorflow)
 correct = 0
 for i, pred in enumerate(predictions):
     if np.argmax(pred) == test_labels_tf[i]:
         correct += 1
-print('Test Accuracy of the model on the {} test images: {}% with TensorFlow'.format(test_img_tf.shape[0], 100 * correct/test_img_tf.shape[0]))
+print('Test Accuracy of the model on the {} test images: {}% with TensorFlow'.format(test_imgs_tf.shape[0], 100 * correct/test_imgs_tf.shape[0]))
 ```
-![result_tensorflow](/resources/imgaes/result_tensorflow.png "result_tensorflow")
+![result_tensorflow](/resources/images/result_tensorflow.png "result_tensorflow")
 
 ## PyTorch
 ### Importing the Library
