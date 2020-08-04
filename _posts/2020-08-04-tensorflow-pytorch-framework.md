@@ -6,7 +6,7 @@ categories: deep-learning, cnn
 ---
 
 # 목차
-[0. Framework in Deep-Learning](#framework-in-deeplearning)   
+[0. Framework in Deep-Learning](#framework-in-deep-learning)   
 [1. Comparision](#comparision)   
 [2. References](#references)
 <br>
