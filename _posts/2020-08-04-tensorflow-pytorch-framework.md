@@ -92,54 +92,66 @@ import torchvision.transforms
 ```
 ### Getting the MNIST Dataset
 ```python
-def showImg(img):   
-    img = img.numpy()   
-    plt.imshow(np.transpose(img, (1, 2, 0)))   
+def imshowPytorch(img):
+    npimg = img.numpy()
+    plt.imshow(np.transpose(npimg, (1, 2, 0)))
 
-transforms = torchvision.transforms.Compose([torchvision.transforms.ToTensor])
-train_dataset = torchvision.datasets.FashionMNIST(root='.data', train=True, transform=transforms, download=True)
-test_dataset = torchvision.datasets.FashionMNIST(root='.data/', train=Fasle, transform=transforms, download=True)
+transforms = torchvision.transforms.Compose([torchvision.transforms.ToTensor()])
+train_dataset = torchvision.datasets.FashionMNIST(root='./data/',
+                                             train=True, 
+                                             transform=transforms,
+                                             download=True)
+test_dataset = torchvision.datasets.FashionMNIST(root='.data/',
+                                             train=False, 
+                                             transform=transforms,
+                                             download=True)
 
-train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=32, shuffle=False)
-test_loader = torch.tuils.data.DataLoader(dataset=test_dataset, batch_size=32, shuffle=False)
-
+train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
+                                           batch_size=32, 
+                                           shuffle=False)
+test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
+                                           batch_size=32, 
+                                           shuffle=False)
+                                           
 data_iter = iter(train_loader)
-img, label = data_iter.next()
-showImg(torchvision.utils.make_grid(img[0]))
+images, label = data_iter.next()
+imshowPytorch(torchvision.utils.make_grid(images[0]))
 print(label[0])
 ```
 ### Building the Model
 ```python
 class NeuralNet(nn.Module):
-def __init__(self, num_of_class):
-    super(NeuralNet, self).__init__()
-    self.cnn_model = nn.Sequential(
-        nn.Conv2d(1, 6, kernel_size=5, stride=1, padding=2),
-        nn.ReLU(),
-        nn.AvgPool2d(kernel_size=2, stride=2),
-        nn.Conv2d(6, 16, kernel_size=5, stride=1, padding=0),
-        nn.ReLU(),
-        nn.AvgPool2d(kernel_size=2, stride=2))
-    self.fc_model = nn.Sequential(
-        nn.Linear(400,120),
-        nn.ReLU(),
-        nn.Linear(120,84),
-        nn.ReLU(),
-    )
-    self.classifier = nn.Linear(84, 10)
+    def __init__(self, num_of_class):
+        super(NeuralNet, self).__init__()
+        self.cnn_model = nn.Sequential(
+            nn.Conv2d(1, 6, kernel_size=5, stride=1, padding=2),
+            nn.ReLU(),
+            nn.AvgPool2d(kernel_size=2, stride=2),
+            nn.Conv2d(6, 16, kernel_size=5, stride=1, padding=0),
+            nn.ReLU(),
+            nn.AvgPool2d(kernel_size=2, stride=2))
+        self.fc_model = nn.Sequential(
+            nn.Linear(400,120),
+            nn.ReLU(),
+            nn.Linear(120,84),
+            nn.ReLU(),
+        )
+        self.classifier = nn.Linear(84, 10)
 
-def forward(self, x):
-    x = self.cnn_model(x)
-    x = x.view(-1, 16*5*5)
-    x = self.fc_model(x)
-    x = self.classifier(x)
-    return x
+    def forward(self, x):
+        x = self.cnn_model(x)
+        x = x.view(-1, 16*5*5)
+        x = self.fc_model(x)
+        x = self.classifier(x)
+        return x
 ```
 ### Visualizing the Model
 ```python
 modelpy = NeuralNet(10)
 criterion = nn.CrossEntropyLoss()
-optim = torch.optim.Adam(modelpy.parameters())
+optim = torch.optim.Adam(modelpy.parameters())   
+
+modelpy
 ```
 ### Training
 ```python
