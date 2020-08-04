@@ -79,6 +79,8 @@ for i, pred in enumerate(predictions):
         correct += 1
 print('Test Accuracy of the model on the {} test images: {}% with TensorFlow'.format(test_img_tf.shape[0], 100 * correct/test_img_tf.shape[0]))
 ```
+![result_tensorflow](/resources/imgaes/result_tensorflow.png "result_tensorflow")
+
 ## PyTorch
 ### Importing the Library
 ```python
@@ -93,8 +95,8 @@ import torchvision.transforms
 ### Getting the MNIST Dataset
 ```python
 def imshowPytorch(img):
-    npimg = img.numpy()
-    plt.imshow(np.transpose(npimg, (1, 2, 0)))
+    img = img.numpy()
+    plt.imshow(np.transpose(img, (1, 2, 0)))
 
 transforms = torchvision.transforms.Compose([torchvision.transforms.ToTensor()])
 train_dataset = torchvision.datasets.FashionMNIST(root='./data/',
@@ -114,9 +116,9 @@ test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
                                            shuffle=False)
                                            
 data_iter = iter(train_loader)
-images, label = data_iter.next()
+images, labels = data_iter.next()
 imshowPytorch(torchvision.utils.make_grid(images[0]))
-print(label[0])
+print(labels[0])
 ```
 ### Building the Model
 ```python
@@ -159,8 +161,8 @@ for e in range(30):
     losss = 0.0
     number_of_sub_epoch = 0
 
-    for img, labels in train_loader:
-        out = modelpy(img)
+    for imgs, labels in train_loader:
+        out = modelpy(imgs)
         loss = criterion(out, labels)
         optim.zero_grad()
         loss.backward()
@@ -174,13 +176,14 @@ for e in range(30):
 correct = 0
 total = 0
 modelpy.eval()
-for img, labels in test_loader:
-    outputs = modelpy(img)
+for imgs, labels in test_loader:
+    outputs = modelpy(imgs)
     _, predicted = torch.max(outputs.data, 1)
     total += labels.size(0)
     correct += (predicted == labels).sum()
 print('Test Accuracy of the model on the {} test images: {}% with PyTorch'.format(total, 100 * correct // total))
 ```
+![result_pytorch](/resources/images/result_pytorch.png "result_pytorch")
 <br>
 
 
