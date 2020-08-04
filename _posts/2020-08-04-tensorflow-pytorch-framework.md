@@ -2,7 +2,7 @@
 classes: wide
 title: "Tensorflow vs PyTorch"
 date: 2020-08-04 10:25:00 -0400
-categories: deep-learning, cnn
+categories: deep-learning framework tensorflow pytorch cnn fashion-mnist
 ---
 
 # 목차
