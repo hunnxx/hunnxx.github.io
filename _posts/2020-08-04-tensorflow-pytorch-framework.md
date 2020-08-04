@@ -6,12 +6,12 @@ categories: deep-learning, cnn
 ---
 
 # 목차
-[0. Framework in Deep-Learning](#framework-in-deep-learning)   
+[0. Framework for Deep-Learning](#framework-for-deep-learning)   
 [1. Comparision](#comparision)   
 [2. References](#references)
 <br>
 
-# Framework in Deep-Learning
+# Framework for Deep-Learning
 ### Tensorflow
 Tensorflow는 연구 목적으로 Google Brain Team에서 개발한 머신러닝 오픈 소스 플랫폼이다. 심볼릭 수학 라이브러리이면서 인공 신경망 알고리즘과 같은 머신 러닝 응용프로그램에 사용된다. Android와 iOS같은 모바일 환경은 물론 64비트 Linux/MacOS의 데스크탑이나 서버 시스템의 여러 개의 CPU와 GPU에서 구동될 수 있다. 
 
