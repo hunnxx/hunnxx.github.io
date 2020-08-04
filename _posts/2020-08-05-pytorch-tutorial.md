@@ -1,4 +1,3 @@
-
 ---
 classes: wide
 title: "Pytorch Tutorial"
