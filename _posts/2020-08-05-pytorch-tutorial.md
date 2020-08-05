@@ -266,7 +266,6 @@ optimizer = torch.optim.SGD(model.parameters(), lr=lr, momentum=0.9)
 
 # Example with MNIST
 ## MNIST Data Setup
-이번 파트에서는 0 에서 9 사이의 흑백 자필 숫자로 구성된 MNIST 데이터셋을 이용할 것이다. 
 ### Download MNIST from Web
 ```python
 from pathlib import Path
@@ -312,324 +311,145 @@ print(x_train, y_train)
 print(x_train.shape)
 print(y_train.min(), y_train.max())
 ```
-## Neural Net (No torch.nn)
+## Code
 ```python
+from matplotlib import pyplot as plt
+import numpy as np
+import torch.nn.functional as F
+from torch import optim
+from torch import nn
+from torch.utils.data import TensorDataset
+from torch.utils.data import DataLoader
 # ----------------------------------------------------------------------------------------------------
-# weights: random weights
-# bias: zero bias
-# bs: batch size
-# loss_func: loss function
-# lr: learning rate
-# epochs: total epochs
-# ----------------------------------------------------------------------------------------------------
-# @: dot product operation
-# def log_softmax(...): activation function
-# def model(...): nueral net
-# def nll(...): loss function
-# def accuracy(...): accuracy function
-# ----------------------------------------------------------------------------------------------------
-import math
+class Mnist_Logistic(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.lin = nn.Linear(784, 10)
 
-def log_softmax(x):
-    return x - x.exp().sum(-1).log().unsqueeze(-1)
+    def forward(self, xb):
+        return self.lin(xb)
 
-def model(xb):
-    return log_softmax(xb @ weights + bias)
-    
-def nll(input, target):
-    return -input[range(target.shape[0]), target].mean()
-    
+class Mnist_CNN(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.layer = nn.Sequential(
+            nn.Conv2d(1, 16, kernel_size=3, stride=2, padding=1),
+            nn.ReLU(),
+            nn.Conv2d(16, 16, kernel_size=3, stride=2, padding=1),
+            nn.ReLU(),
+            nn.Conv2d(16, 10, kernel_size=3, stride=2, padding=1),
+            nn.ReLU(),
+            nn.AdaptiveAvgPool2d(1),
+            Lambda(lambda x: x.view(x.size(0), -1)),
+        )
+
+    def forward(self, xb):
+        return self.layer(xb)
+
+class Lambda(nn.Module):
+    def __init__(self, func):
+        super().__init__()
+        self.func = func
+
+    def forward(self, x):
+        return self.func(x)
+
+class WrappedDataLoader:
+    def __init__(self, dl, func):
+        self.dl = dl
+        self.func = func
+
+    def __len__(self):
+        return len(self.dl)
+
+    def __iter__(self):
+        batches = iter(self.dl)
+        for b in batches:
+            yield (self.func(*b))
+# ----------------------------------------------------------------------------------------------------
+def preprocess(x, y):
+    return x.view(-1, 1, 28, 28).to(dev), y.to(dev)
+
+# Calculate an accuracy
 def accuracy(out, yb):
     preds = torch.argmax(out, dim=1)
     return (preds == yb).float().mean()
 
-weights = torch.randn(784, 10) / math.sqrt(784)
-weights.requires_grad()
-bias = torch.zeros(10, requires_grad=True)
-bs = 64
-loss_func = nll
-lr = 0.5
-epochs = 2
+# Return Neural Net and Optimizer
+def get_model():
+    # model = Mnist_Logistic()
+    model = Mnist_CNN()
+    # return model, optim.SGD(model.parameters(), lr=lr)
+    return model.to(dev), optim.SGD(model.parameters(), lr=lr, momentum=0.9)
 
-for epoch in range(epochs):
-    for i in range((n-1) // bs + 1):
-        # Forward pass
-        start_i = i * bs
-        end_i = start_i + bs
-        xb = x_train[start_i:end_i]
-        yb = y_train[start_i:end_i]
-        pred = model(xb)
-        loss = loss_func(pred, yb)
-        
+# Return a DataLoader with Tensor Dataset
+def get_data(train_ds, valid_ds, bs):
+    return(
+        DataLoader(train_ds, batch_size=bs, shuffle=True),
+        DataLoader(valid_ds, batch_size=bs*2)
+    )
+
+# Run the Model
+def loss_batch(model, loss_func, xb, yb, opt=None):
+    loss = loss_func(model(xb), yb)
+
+    if opt is not None:
         # Backward pass
         loss.backward()
         
         # Update Weights
-        with torch.no_grad():
-            weights -= weights.grad * lr
-            bias -= bias.grad * lr
-            weights.grad.zero_()
-            bias.grad.zero_()
-        
-        print(loss, accuracy(model(xb), yb))
-```
-## Using torch.nn.Modules
-이전의 `Neural Net`에서는 간단한 신경망을 PyTorch의 핵심 기능을 제외하고 구성하였다. 이번에는 nn.Modules의 기능을 통해 이전 코드를 짧고 융하게 바꿀 예정이다. 
-### Using torch.nn.functional/Moudule/Linear
-```python
-import math
-import torch.nn.functional as F
-from torch import nn
-
-class MNIST_Logistic(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.lin = nn.Linear(784, 10)
-    
-    def forward(self, xb):
-        return self.lin(xb)
-
-. . . 
-
-# def log_softmax(x):
-#    return x - x.exp().sum(-1).log().unsqueeze(-1)
-
-# def model(xb):
-#    return xb @ weights * bias
-    
-# def nll(input, target):
-#    return -input[range(target.shape[0]), target].mean()
-
-. . .
-
-# weights = torch.randn(784, 10) / math.sqrt(784)
-# weights.requires_grad()
-# bias = torch.zeros(10, requires_grad=True)
-loss_func = F.cross_entropy
-model = MNIST_Logistic()
-
-. . .
-
-def main():
-    for epoch in range(epochs):
-        for i in range((n-1) // bs + 1):
-            
-            . . .
-            
-            # Backward pass
-            loss.backward()
-            
-            # Update weights
-            with torch.no_grad():
-                for p in model.parameters():
-                    p -= p.grad * lr
-                model.zero_grad()
-                
-if __name__ == '__main__':
-    main()
-```
-## Refactor using optim
-```python
-import math
-import torch.nn.functional as F
-from torch import nn
-from torch import optim
-
-. . .
-
-def get_model():
-    model = MNIST_Logistic()
-    return model, optim.SGD(model.parameters(), lr=lr)
-    
-. . .
-
-# model = MNIST_Logistic()
-model, opt = get_model()
-
-. . .
-
-def main():
-for epoch in range(epochs):
-    for i in range((n-1) // bs + 1):
-        
-        . . .
-        
-        # Backward pass
-        loss.backward()
-        
-        # Update weights
         opt.step()
         opt.zero_grad()
-            
-. . .
-```
-## Refactor using Dataset/DataLoader
-```python
-# ----------------------------------------------------------------------------------------------------
-# TensorDataset: https://pytorch.org/docs/master/data.html?highlight=tensordataset#torch.utils.data.TensorDataset
-# DataLoader: manage batches in Dataset
-# ----------------------------------------------------------------------------------------------------
-import math
-import torch.nn.functional as F
-from torch import nn
-from torch import optim
-from torch.utils.data import TensorDataset
-from torch.utils.data import DataLoader
 
-. . .
-
-train_ds = TensorDataset(x_train, y_train)
-train_dl = DataLoader(train_ds, batch_size=bs)
-
-. . .
-
-def main():
-    for epoch in range(epochs):
-        for xb, yb in train_dl:
-            pred = model(xb)
-            loss = loss_func(pred, yb)
-            
-            . . .
-        
-. . .
-```
-## Add Validation
-```python
-# ----------------------------------------------------------------------------------------------------
-# model.train/eval(): nn.BatchNorm2d/nn.Dropout과 같은 Layers가 있는 모델에게 현재 Phases를 지정
-# ----------------------------------------------------------------------------------------------------
-import math
-import torch.nn.functional as F
-from torch import nn
-from torch import optim
-from torch.utils.data import TensorDataset
-from torch.utils.data import DataLoader
-
-. . .
-
-train_ds = TensorDataset(x_train, y_train)
-train_dl = DataLoader(train_ds, batch_size=bs, shuffle=True)
-
-valid_ds = TensorDataset(x_valid, y_valid)
-valid_dl = DataLoader(valid_ds, batch_size=bs * 2)
-
-. . .
-
-def main():
-for epoch in range(epochs):
-    model.train()
-    for xb, yb in train_dl:
-        pred = model(xb)
-        loss = loss_func(pred, yb)
-        
-        loss.backward()
-        opt.step()
-        opt.zero_grad()
-        
-    model.eval()
-    with torch.no_grad():
-        valid_loss = sum(loss_func(model(xb), yb) for xb, yb in valid_dl)
-    print(epoch, valid_loss / len(valid_dl)
-    
-. . .
-```
-## Create fit() and get_data()
-```python
-import math
-import numpy as np
-import torch.nn.functional as F
-from torch import nn
-from torch import optim
-from torch.utils.data import TensorDataset
-from torch.utils.data import DataLoader
-
-. . .
-
-def loss_batch(model, loss_func, xb, yb, opt=None):
-    loss = loss_func(model(xb), yb)
-    
-    if opt is not None:
-        loss.backward()
-        opt.step()
-        opt.zero_grad()
-        
     return loss.item(), len(xb)
-    
-def get_data(trina_ds, valid_ds, bs):
-    return (
-    DataLoader(train_ds, batch_size=bs, shuffle=True), 
-    DataLoader(valid_ds, batch_size=bs * 2)
-    )
 
-. . .
-
-train_dl, valid_dl = get_data(train_ds, valid_ds, bs)
-
-. . .
-
-def main(epochs, model, loss_func, opt, train_dl, valid_dl):
+# Training
+def fit(epochs, model, loss_func, opt, train_dl, valid_dl):
     for epoch in range(epochs):
         model.train()
         for xb, yb in train_dl:
+            # Forward pass
             loss_batch(model, loss_func, xb, yb, opt)
-        
+
         model.eval()
         with torch.no_grad():
             losses, nums = zip(
                 *[loss_batch(model, loss_func, xb, yb) for xb, yb in valid_dl]
             )
         val_loss = np.sum(np.multiply(losses, nums)) / np.sum(nums)
+
         print(epoch, val_loss)
+        epoch_list.append(epoch)
+        loss_list.append(val_loss)
+# ----------------------------------------------------------------------------------------------------
+# For using GPU
+dev = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+print(dev)
 
-. . .
-```
-## Switch to CNN
-```python
-import math
-import numpy as np
-import torch.nn.functional as F
-from torch import nn
-from torch import optim
-from torch.utils.data import TensorDataset
-from torch.utils.data import DataLoader
-
-. . . 
-
-class Mnist_CNN(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.conv1 = nn.Conv2d(1, 16, kernel_size=3, stride=2, padding=1)
-        self.conv2 = nn.Conv2d(16, 16, kernel_size=3, stride=2, padding=1)
-        self.conv3 = nn.Conv2d(16, 10, kernel_size=3, stride=2, padding=1)
-
-    def forward(self, xb):
-        xb = xb.view(-1, 1, 28, 28)
-        xb = F.relu(self.conv1(xb))
-        xb = F.relu(self.conv2(xb))
-        xb = F.relu(self.conv3(xb))
-        xb = F.avg_pool2d(xb, 4)
-        return xb.view(-1, xb.size(1))
-        
-. . .
-
-def get_model():
-    model = MNIST_CNN()
-    return model, optim.SGD(model.parameters(), lr=lr, momentum=0.9)
-
-. . .
-
+# Parameters
+# lr = 0.5
 lr = 0.1
+bs = 64
+loss_func = F.cross_entropy
+epochs = 50
+model, opt = get_model()
 
-. . .
-    
+# Data Processing
+train_ds = TensorDataset(x_train, y_train)
+valid_ds = TensorDataset(x_valid, y_valid)
+train_dl, valid_dl = get_data(train_ds, valid_ds, bs)
+train_dl = WrappedDataLoader(train_dl, preprocess)
+valid_dl = WrappedDataLoader(valid_dl, preprocess)
+
+# Graph
+epoch_list = []
+loss_list = []
+# ----------------------------------------------------------------------------------------------------
+# Processing
+fit(epochs, model, loss_func, opt, train_dl, valid_dl)
+plt.plot(epoch_list, loss_list)
+plt.show()
 ```
-## nn.Sequential
-
-## Wrapping DataLoader
-
-## Using your GPU
-
-## Conclusion
 <br>
 
 # References
