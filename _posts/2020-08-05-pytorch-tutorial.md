@@ -6,9 +6,9 @@ categories: deep-learning framework pytorch cnn mnist
 ---
 
 # 목차
-[0. Learning Pytorch](#learning-pytorch)
-[1. Example with MNIST](#example-with-mnist)
-[2. References](#references)
+[0. Learning Pytorch](#learning-pytorch)   
+[1. Example with MNIST](#example-with-mnist)   
+[2. References](#references)   
 <br>
 
 # Learning PyTorch
