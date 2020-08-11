@@ -6,10 +6,11 @@ categories: apple swift
 ---
 
 # 목차
-[0. Swift](#swift)
-[1. Basic](#basic)
-[2. References](#references)
+[0. Swift](#swift)   
+[1. Basic](#basic)   
+[2. References](#references)   
 <br>
+
 
 # Swift
 Swift는 iOS, macOS, watchOS 그리고 tvOS 앱 개발을 위한 새로운 프로그래밍 언어다. Swift의 많은 부분은 C와 Objective-C 개발 경험과 상당히 유사하다. 
@@ -24,6 +25,7 @@ Swift는 C와 같이 값을 저장하고 참조할 수 있는 변수(Variable)�
 
 Swift는 개발자가 사용하고 있는 값의 Type이 무엇인지 분명하게 확인할 수 있도록 해주는 **Type-Safe** 언어다. 만약, 개발자의 코드의 하나의 부분이 `String`이 필요하다면, 실수로 개발자가 이것을 `Int`로 처리하는 것을 방지해준다. 마찬가지로 `Non-Optional String`을 필요로 하는 코드의 일부분에 우연히 `optional String`이 처리되는 것을 방지해준다. **Type-Safety**는 개발자가 개발 과정에서 가능한 초기에 오류를 찾고 고치도록 도와준다.
 <br>
+
 
 # Basic
 ## 상수(Constant) and 변수(Variable)
@@ -232,7 +234,6 @@ if let definiteString = assumedString {
     print(definiteString)
 }
 ```
-
 개발자는 **Implicitly Unwrapped Optionals**이 `Optional`을 강제로 푸는 권한을 주는 것으로 생각할 수 있다.  개발자가 **Implicitly Unwrapped Optionals**를 사용할 때, Swift는 먼저 순차적으로 `Optional` 값으로서 사용한다. 만약 `Optional`로 사용되지 않았다면, Swift는 강제로 값을 푼다. 위 코드에서 볼 수 있듯이, `Optional` 값 `assuemdString`은 `implicitString`에 값으로서 할당되기 전에 강제로 풀려진다. 왜냐하면 `implicitString`은 분명한 Type인 `Non-Optional String`을 가졌기 때문이다. 하지만 아래 코드에서 보듯이, `optionalString`은 분명한 Type을 가지고 있지 않다.
 ```swift
 let optionalString = assumedString 
@@ -298,6 +299,7 @@ if age > 10{
 precondition(index>0, "Index must be greater than zero.")
 ```
 <br>
+
 
 # References
 - https://docs.swift.org/swift-book/
