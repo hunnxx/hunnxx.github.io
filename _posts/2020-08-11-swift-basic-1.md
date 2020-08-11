@@ -23,8 +23,8 @@ Swift는 C와 같이 값을 저장하고 참조할 수 있는 변수(Variable)�
 
 또한 Swift는 값이 없는 것을 다루는 `Optional` Type을 제공한다. `Optional`은 "여기에 있는 값은 x와 같아" 또는 "여기에는 값이 없어"와 같이 알려준다. `Optional`을 사용하는 것은 Objective-C에서 포인터 안의 `nil`을 사용하는 것과 비슷하지만, 클래스 뿐만 아니라 모든 type에서 동작한다. `Optional`는 Objective-C의 `nil` 포인터 보다 안전하고 명확할 뿐만 아니라 Swift의 많은 핵심적인 기능들의 심장부에 있다.
 
-Swift는 개발자가 사용하고 있는 값의 Type이 무엇인지 분명하게 확인할 수 있도록 해주는 **Type-Safe** 언어다. 만약, 개발자의 코드의 하나의 부분이 `String`이 필요하다면, 실수로 개발자가 이것을 `Int`로 처리하는 것을 방지해준다. 마찬가지로 `Non-Optional String`을 필요로 하는 코드의 일부분에 우연히 `optional String`이 처리되는 것을 방지해준다. **Type-Safety**는 개발자가 개발 과정에서 가능한 초기에 오류를 찾고 고치도록 도와준다.
-<br>
+Swift는 개발자가 사용하고 있는 값의 Type이 무엇인지 분명하게 확인할 수 있도록 해주는 **Type-Safe** 언어다. 만약, 개발자의 코드의 하나의 부분이 `String`이 필요하다면, 실수로 개발자가 이것을 `Int`로 처리하는 것을 방지해준다. 마찬가지로 `Non-Optional String`을 필요로 하는 코드의 일부분에 우연히 `optional String`이 처리되는 것을 방지해준다. **Type-Safety**는 개발자가 개발 과정에서 가능한 초기에 오류를 찾고 고치도록 도와준다.   
+<br>   
 
 
 # Basic
@@ -219,7 +219,7 @@ if let firstNumber = Int("4"){
 위에서 언급했듯이 `Optional`은 값이 없을 수도 있기 때문에 `if`를 통해 값을 확인하고 조건적으로 Optional Binding으로 값에 접근할 수 있다. 하지만 가끔씩 `Optional`이 항상 값을 가지고 있는 구조가 확실하다면 이러한 과정을 수행하지 않는 것이 효율적이다. 
 
 이러한 `Optional`의 특징을 **Implicitly Unwrapped Optionals**이라고 정의되어져 있다. 개발자는 `String?`을 `String!`으로 선언함으로써 사용할 수 있다.
-```swfit
+```swift
 let possibleString: String? = "An optional string."
 let forcedString: String = possibleString!
 
