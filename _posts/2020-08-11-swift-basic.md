@@ -1,6 +1,6 @@
 ---
 classes: wide
-title: "Swift Basic-1"
+title: "Swift Basic"
 date: 2020-08-11 15:00:00 -0400
 categories: apple swift
 ---
@@ -301,5 +301,6 @@ precondition(index>0, "Index must be greater than zero.")
 <br>
 
 
-# References
+# References and More Details
 - https://docs.swift.org/swift-book/
+- https://jusung.gitbook.io/the-swift-language-guide/
